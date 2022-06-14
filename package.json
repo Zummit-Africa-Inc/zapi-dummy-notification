@@ -2,7 +2,7 @@
   "name": "zapi-dummy-notification",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Jude Adesulu <judeadesuluflyer6@gmail.com>",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -21,21 +21,25 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^8.0.0",
+    "@nestjs/common": "^8.4.6",
     "@nestjs/config": "^2.1.0",
-    "@nestjs/core": "^8.0.0",
-    "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/core": "^8.4.6",
+    "@nestjs/jwt": "^8.0.1",
+    "@nestjs/platform-express": "^8.4.6",
     "@nestjs/swagger": "^5.2.1",
     "@nestjs/typeorm": "^8.1.2",
+    "nodemailer": "^6.7.5",
+    "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0",
+    "rxjs": "^7.5.5",
+    "swagger-ui-express": "^4.4.0",
     "typeorm": "^0.3.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
     "@nestjs/schematics": "^8.0.0",
-    "@nestjs/testing": "^8.0.0",
+    "@nestjs/testing": "^8.4.6",
     "@types/express": "^4.17.13",
     "@types/jest": "27.5.0",
     "@types/node": "^16.0.0",
@@ -50,8 +54,8 @@
     "source-map-support": "^0.5.20",
     "supertest": "^6.1.3",
     "ts-jest": "28.0.1",
-    "ts-loader": "^9.2.3",
-    "ts-node": "^10.0.0",
+    "ts-loader": "^9.3.0",
+    "ts-node": "^10.8.1",
     "tsconfig-paths": "4.0.0",
     "typescript": "^4.3.5"
   },
@@ -71,5 +75,7 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Zummit-Africa-Inc/zapi-dummy-notification.git"
 }
