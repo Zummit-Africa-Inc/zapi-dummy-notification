@@ -25,7 +25,7 @@ export class EmailConfirmationService {
     const url = `${this.configService.get(
       'MAIL_CONFIRMATION_URL',
     )}?token=${token}`;
-    const text = `Welcome to Zummit. To confirm your mail, please click this address here: ${url}`;
+    const text = `Welcome to Zummit. To confirm your mail, please click the link: ${url}`;
 
     return this.emailService.sendMail({
       from: 'Zummit Dummy App <ZummitDummy@app.org>',
@@ -44,19 +44,23 @@ export class EmailConfirmationService {
         return payload.email;
       }
       throw new BadRequestException(
-        ZuAppResponse.BadRequest('Unauthorized', 'Email not confirmed'),
+        ZuAppResponse.BadRequest('Forbidden', 'Email not confirmed', '403'),
       );
     } catch (error) {
       if (error?.name === 'TokenExpiredError')
         throw new BadRequestException(
           ZuAppResponse.BadRequest(
-            'Token Expired',
+            'Unathorized',
             'Email confirmation token expired',
-            '400',
+            '401',
           ),
         );
       throw new BadRequestException(
-        ZuAppResponse.BadRequest('Bad Token', 'Bad confirmation token', '400'),
+        ZuAppResponse.BadRequest(
+          'Unathorized',
+          'Invalid confirmation token',
+          '401',
+        ),
       );
     }
   }
