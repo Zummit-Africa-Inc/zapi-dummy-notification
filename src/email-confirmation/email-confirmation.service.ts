@@ -22,9 +22,7 @@ export class EmailConfirmationService {
       )}s`,
     });
 
-    const url = `${this.configService.get(
-      'MAIL_CONFIRMATION_URL',
-    )}?token=${token}`;
+    const url = `${this.configService.get('MAIL_CONFIRMATION_URL')}/${token}`;
     const text = `Welcome to Zummit. To confirm your mail, please click the link: ${url}`;
 
     return this.emailService.sendMail({
@@ -44,7 +42,7 @@ export class EmailConfirmationService {
         return payload.email;
       }
       throw new BadRequestException(
-        ZuAppResponse.BadRequest('Forbidden', 'Email not confirmed', '403'),
+        ZuAppResponse.BadRequest('Unathorized', 'Email not confirmed', '401'),
       );
     } catch (error) {
       if (error?.name === 'TokenExpiredError')
