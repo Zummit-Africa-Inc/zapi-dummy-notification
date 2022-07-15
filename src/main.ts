@@ -17,6 +17,6 @@ async function bootstrap() {
     const document = SwaggerModule.createDocument(app, options)
     SwaggerModule.setup('api-notify', app, document)
   }
-  await app.listen(3000);
+  await app.listen(Number(process.env.NODE_PORT) || 3111);
 }
 bootstrap();
