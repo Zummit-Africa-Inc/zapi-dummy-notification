@@ -12,7 +12,7 @@ export class EmailService {
     // Set the mail service provider
     this.nodeMailerTransport = createTransport({
       host: this.configService.get('MAIL_HOST'),
-      port: this.configService.get('MAIL_PORT'),
+      service: "Gmail",
       auth: {
         user: this.configService.get('MAIL_USERNAME'),
         pass: this.configService.get('MAIL_PASSWORD'),
@@ -23,7 +23,7 @@ export class EmailService {
   // Function that conveys mail notification to user
   async sendMailNotification(sendEmailDto: SendEmailDto) {
     return this.sendMail({
-      from: 'Zummit Dummy App <ZummitDummy@app.org>',
+      from: 'Zummit Dummy App <no_reply@zummitafrica.com>',
       to: sendEmailDto.email,
       subject: sendEmailDto.subject,
       text: sendEmailDto.text,
